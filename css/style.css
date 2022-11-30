@@ -59,6 +59,7 @@
 }
 
 
+
 .input-task {
     padding: 20px 0;
     display: flex;
@@ -78,4 +79,10 @@
     padding: 12px 26px;
     border: none;
     cursor: pointer;
+}
+
+
+.done {
+    color: red;
+    text-decoration: line-through;
 }

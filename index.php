@@ -19,13 +19,13 @@
                 <h1>Todo List</h1>
                 <div class="tasks-box">
                     <div v-for="(todo, index) in tasksList" class="task">
-                        <p>{{todo.text}}</p>
+                        <p :class="todo.done ? 'done' : ''">{{todo.text}}</p>
                         <button>Delete</button>
                     </div>
                 </div>
                 <div class="input-task">
-                    <input type="text" name=newtask placeholder="New Task">
-                    <button>Add</button>
+                    <input type="text" name=newTask placeholder="New Task" v-model="newTask">
+                    <button @click="addNewTask()">Add</button>
                 </div>
             </div>
         </div>

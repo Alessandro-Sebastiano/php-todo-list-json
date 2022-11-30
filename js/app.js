@@ -6,6 +6,7 @@ const app = createApp({
         return {
             tasksList: [],
             apiUrl: './php/results.php',
+            newTask: '',
         }
     },
 
@@ -19,6 +20,19 @@ const app = createApp({
             });
 
         },
+
+        addNewTask() {
+
+            const data = { newTask: this.newTask }
+
+            axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+                console.log('passed');
+            })
+
+            this.getTasks();
+
+            this.newTask = '';
+        }
     },
 
     created() {
