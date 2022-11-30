@@ -18,8 +18,8 @@
             <div class="app-box">
                 <h1>Todo List</h1>
                 <div class="tasks-box">
-                    <div class="task">
-                        <p>test</p>
+                    <div v-for="(todo, index) in tasksList" class="task">
+                        <p>{{todo.text}}</p>
                         <button>Delete</button>
                     </div>
                 </div>
