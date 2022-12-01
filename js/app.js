@@ -27,7 +27,7 @@ const app = createApp({
 
             axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
                 console.log('task add ok');
-            })
+            });
 
             this.getTasks();
 
@@ -38,15 +38,33 @@ const app = createApp({
 
             const data = {
                 selectIndex: i,
-            }
+            };
 
 
             axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
                 console.log('done ok');
-            })
+            });
 
             this.getTasks();
         },
+
+        removeTask(i) {
+
+            const data = {
+                removeIndex: i,
+            };
+
+            axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+
+                console.log('remove ok');
+
+            });
+
+            this.getTasks();
+
+        },
+
+
     },
 
     created() {

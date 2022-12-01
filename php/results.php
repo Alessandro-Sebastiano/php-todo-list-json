@@ -34,6 +34,13 @@ if (isset($_POST['newTask'])) {
     }
 
     file_put_contents('../database/data.json', json_encode($tasks_list));
+} else if (isset($_POST['removeIndex'])) {
+
+    $removeTaskIndex = $_POST['removeIndex'];
+
+    array_splice($tasks_list, $removeTaskIndex, 1);
+
+    file_put_contents('../database/data.json', json_encode($tasks_list));
 } else {
 
     header('Content-Type: application/json');
