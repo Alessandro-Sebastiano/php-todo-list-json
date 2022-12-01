@@ -42,7 +42,7 @@
 
 
 .tasks-box {
-    min-height: 436px;
+    height: 436px;
     border-radius: 12px;
     background-color: var(--ligth);
     overflow-y: auto;
@@ -85,4 +85,14 @@
 .done {
     color: red;
     text-decoration: line-through;
+}
+
+
+.alert-error {
+    color: red;
+    display: none;
+}
+
+.display-error {
+    display: block;
 }

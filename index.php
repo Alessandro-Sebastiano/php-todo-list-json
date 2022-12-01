@@ -27,6 +27,7 @@
                     <input type="text" name=newTask placeholder="New Task" v-model="newTask">
                     <button @click="addNewTask()">Add</button>
                 </div>
+                <span class="alert-error" :class="alertError ? 'display-error' : ''">Task is empty</span>
             </div>
         </div>
     </div>

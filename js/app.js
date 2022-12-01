@@ -7,6 +7,7 @@ const app = createApp({
             tasksList: [],
             apiUrl: './php/results.php',
             newTask: '',
+            alertError: false,
         }
     },
 
@@ -23,15 +24,25 @@ const app = createApp({
 
         addNewTask() {
 
-            const data = { newTask: this.newTask }
+            if (this.newTask != '') {
 
-            axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
-                console.log('task add ok');
-            });
+                const data = { newTask: this.newTask }
 
-            this.getTasks();
+                axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+                    console.log('task add ok');
+                });
 
-            this.newTask = '';
+                this.getTasks();
+
+                this.newTask = '';
+
+                if (this.alertError == true) {
+                    this.alertError = false;
+                }
+
+            } else {
+                this.alertError = true;
+            }
         },
 
         select(i) {
