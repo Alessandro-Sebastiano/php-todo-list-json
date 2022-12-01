@@ -21,8 +21,19 @@ if (isset($_POST['newTask'])) {
 
     file_put_contents('../database/data.json', json_encode($tasks_list));
 
-    header('Content-Type: application/json');
-    echo json_encode($tasks_list);
+    // header('Content-Type: application/json');
+    // echo json_encode($tasks_list);
+} else if (isset($_POST['selectIndex'])) {
+
+    $taskIndex = $_POST['selectIndex'];
+
+    if ($tasks_list[$taskIndex]->done == 0) {
+        $tasks_list[$taskIndex]->done = true;
+    } else {
+        $tasks_list[$taskIndex]->done = false;
+    }
+
+    file_put_contents('../database/data.json', json_encode($tasks_list));
 } else {
 
     header('Content-Type: application/json');

@@ -16,7 +16,7 @@ const app = createApp({
 
             axios.get(this.apiUrl).then((response) => {
                 this.tasksList = response.data;
-                console.log(this.tasksList);
+                console.log('get task ok');
             });
 
         },
@@ -26,13 +26,27 @@ const app = createApp({
             const data = { newTask: this.newTask }
 
             axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
-                console.log('passed');
+                console.log('task add ok');
             })
 
             this.getTasks();
 
             this.newTask = '';
-        }
+        },
+
+        select(i) {
+
+            const data = {
+                selectIndex: i,
+            }
+
+
+            axios.post(this.apiUrl, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+                console.log('done ok');
+            })
+
+            this.getTasks();
+        },
     },
 
     created() {
@@ -43,3 +57,17 @@ const app = createApp({
 
 
 app.mount('#app');
+
+
+// let data = { setDone: null };
+//             let key = { setKey: i };
+
+//             if (this.tasksList[i].done === false) {
+//                 data.setDone = true;
+//             } else {
+//                 data.setDone = false;
+//             }
+
+//             axios.post(this.apiUrl, data, key, { headers: { 'Content-Type': 'multipart/form-data' } }).then((response) => {
+
+//             })

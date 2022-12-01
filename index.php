@@ -18,7 +18,7 @@
             <div class="app-box">
                 <h1>Todo List</h1>
                 <div class="tasks-box">
-                    <div v-for="(todo, index) in tasksList" class="task">
+                    <div v-for="(todo, index) in tasksList" class="task" @click="select(index)">
                         <p :class="todo.done ? 'done' : ''">{{todo.text}}</p>
                         <button>Delete</button>
                     </div>
